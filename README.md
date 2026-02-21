@@ -1,39 +1,53 @@
-# ktor_sample
+# Ktor REST API Backend
 
-This project was created using the [Ktor Project Generator](https://start.ktor.io).
-
-Here are some useful links to get you started:
-
-- [Ktor Documentation](https://ktor.io/docs/home.html)
-- [Ktor GitHub page](https://github.com/ktorio/ktor)
-- The [Ktor Slack chat](https://app.slack.com/client/T09229ZC6/C0A974TJ9). You'll need to [request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) to join.
+This is a RESTful API backend built with Ktor, a modern and asynchronous web framework for Kotlin.
 
 ## Features
 
-Here's a list of features included in this project:
+*   **RESTful API:** Provides endpoints for interacting with the application.
+*   **Authentication:** Secures endpoints using JWT (JSON Web Tokens).
+*   **Database Interaction:** Uses Exposed for database access.
+*   **Dependency Injection:** Manages dependencies with Koin.
 
-| Name                                               | Description                                                 |
-| ----------------------------------------------------|------------------------------------------------------------- |
-| [Routing](https://start.ktor.io/p/routing-default) | Allows to define structured routes and associated handlers. |
+## Libraries Used
 
-## Building & Running
+This project utilizes the following libraries:
 
-To build or run the project, use one of the following tasks:
+| Library                               | Version | Description                               |
+| ------------------------------------- | ------- | ----------------------------------------- |
+| **Ktor**                              | 3.4.0   | Asynchronous web framework for Kotlin.    |
+| - `ktor-server-core`                  | 3.4.0   | Core components for the Ktor server.      |
+| - `ktor-server-netty`                 | 3.4.0   | Netty engine for running the Ktor server. |
+| - `ktor-serialization-kotlinx-json`   | 3.4.0   | JSON serialization support.               |
+| - `ktor-server-content-negotiation`   | 3.4.0   | Content negotiation for APIs.             |
+| - `ktor-server-auth`                  | 3.4.0   | Authentication support.                   |
+| - `ktor-server-auth-jwt`              | 3.4.0   | JWT authentication support.               |
+| - `ktor-server-config-yaml`           | 3.4.0   | YAML configuration support.               |
+| **Exposed**                           | 0.61.0  | SQL framework for Kotlin.                 |
+| - `exposed-core`                      | 0.61.0  | Core components for Exposed.              |
+| - `exposed-jdbc`                      | 0.61.0  | JDBC driver support for Exposed.          |
+| - `exposed-dao`                       | 0.61.0  | DAO (Data Access Object) API for Exposed. |
+| **Koin**                              | 4.1.1   | Dependency injection framework for Kotlin.|
+| - `koin-ktor`                         | 4.1.1   | Koin integration for Ktor.                |
+| - `koin-logger-slf4j`                 | 4.1.1   | Logging for Koin.                         |
+| **MySQL Connector/J**                 | 8.4.0   | JDBC driver for MySQL.                    |
+| **jBcrypt**                           | 0.4     | Password hashing library.                 |
+| **Logback**                           | 1.4.14  | Logging framework.                        |
+| **H2 Database**                       | 2.3.232 | In-memory database for testing.           |
 
-| Task                                    | Description                                                          |
-| -----------------------------------------|---------------------------------------------------------------------- |
-| `./gradlew test`                        | Run the tests                                                        |
-| `./gradlew build`                       | Build everything                                                     |
-| `./gradlew buildFatJar`                 | Build an executable JAR of the server with all dependencies included |
-| `./gradlew buildImage`                  | Build the docker image to use with the fat JAR                       |
-| `./gradlew publishImageToLocalRegistry` | Publish the docker image locally                                     |
-| `./gradlew run`                         | Run the server                                                       |
-| `./gradlew runDocker`                   | Run using the local docker image                                     |
+## Getting Started
 
-If the server starts successfully, you'll see the following output:
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    ```
+2.  **Configure the application:**
+    *   Open `src/main/resources/application.yaml`.
+    *   Update the `database` section with your MySQL connection details (URL, user, password).
+    *   Update the `jwt.secret` with a strong, unique secret.
+3.  **Run the application:**
+    ```bash
+    ./gradlew run
+    ```
 
-```
-2024-12-04 14:32:45.584 [main] INFO  Application - Application started in 0.303 seconds.
-2024-12-04 14:32:45.682 [main] INFO  Application - Responding at http://0.0.0.0:8080
-```
-
+The API will be available at `http://localhost:8080`.
