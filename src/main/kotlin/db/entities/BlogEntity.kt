@@ -12,5 +12,4 @@ class BlogEntity(id: EntityID<Int>) : IntEntity(id) {
     var title by BlogsTable.title
     var content by BlogsTable.content
     var author by UserEntity referencedOn BlogsTable.author
-
 }

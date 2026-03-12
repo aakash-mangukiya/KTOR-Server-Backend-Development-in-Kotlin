@@ -34,7 +34,6 @@ fun Application.generateToken(user: User): String? {
         e.printStackTrace()
         null
     }
-
 }
 
 fun Application.jwtVerifier(): JWTVerifier {
